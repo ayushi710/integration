@@ -1,10 +1,5 @@
-$(document).ready(function(){
-    console.log("ready to execute");
-    console.log("element is ", $('.calls'));
-    $('.calls').hide(function () {
-        console.log('done');
-    });
-    console.log("call hide");
+setTimeout(function(){
+    $('.calls').hide();
     var flag = 0;
     $('.sample-btn').on('click', function(){
         console.log("clicked");
@@ -20,4 +15,4 @@ $(document).ready(function(){
 
     });
 
-});
+},200);
