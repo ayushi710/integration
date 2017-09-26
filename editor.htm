@@ -1,0 +1,107 @@
+<div class="contain" ng-controller="embedCtrl" >
+    <div class="navigation-bar">
+        <div class="logo">
+            <img src="images/gBlogo-white.png" class="image">
+        </div>
+
+        <ul class="nav">
+            <li>
+                <a href="#!introduction" onclick="winScroll(0,0)"> INTRODUCTION</a>
+            </li>
+            <li class="active">
+                <a href="#!editor" onclick="winScroll(0,0)"> EDITOR</a>
+                <div id="editor_list">
+                    <ul>
+                        <li><a class="sub-division" onclick="winScroll(100,0)">Editor Overview</a> </li>
+                        <li><a class="sub-division" onclick="winScroll(0,300)">Getting Started Resources</a> </li>
+                        <!--
+                        <li><a class="sub-division" href="#!response_codes">Response Codes</a> </li>
+                        <li><a class="sub-division" href="#!rate_limiting">Rate Limiting</a> </li>
+                        <li><a class="sub-division" href="#!social_network">Social Network Type</a> </li>
+                         -->
+                    </ul>
+                </div>
+
+            </li>
+            <!--
+            <li><a href="#!digital_footprint" onclick="winScroll(0,0)"> DIGITAL FOOTPRINT</a></li>
+            -->
+            <li><a href="#!ats" onclick="winScroll(0,0)"> ATS</a></li>
+            <li><a href="#!resume_parser" onclick="winScroll(0,0)"> RESUME PARSER</a></li>
+            <!--
+            <li><a href="#!opportunities" onclick="winScroll(0,0)"> OPPORTUNITIES</a></li>
+            -->
+            <li><a href="#!custom" onclick="winScroll(0,0)"> CUSTOM</a></li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="content">
+            <h3>Editor Overview</h3>
+            <p>
+                Integrate the editor in your application and offer digital resumes from within your website or blog.
+                You can use any number of Getboarded templates. The iframe embed code gives full functional editor to
+                your users with this integration. You may use the link to launch the editor from any page.
+            </p>
+        </div>
+        <div class="content">
+            <h3>Getting Started Resources</h3>
+            <!--
+            <p>
+                As you get started implementing the editor, there are a few resources that can help you out.
+                Below we’ve listed a few libraries and services.
+            </p>
+            -->
+            <ul class="list">
+                <li>You can choose size of the editor to implement, the editor works in website mode, tablet mode and
+                    mobile mode seamlessly.</li>
+                <li>Admin email chosen will provide you with access to all resumes created through the implemented
+                    editor when you login to Getboarded.com</li>
+                <li>You can order a custom design and have your own resume created from within your platform</li>
+            </ul>
+        </div>
+
+        <div class="code_editor">
+            <form>
+                <h4>Admin Email</h4>
+                <input type="email" name="admin_email"  placeholder="you@example.com" id="admin_email">
+                <h4>Embed</h4>
+                <div id="embed" ng-model="embed">
+
+                    {{embed}}
+
+                </div>
+
+                <div>
+                    <div class="option">
+                        <h4 class="sub-title" >Size(px)</h4>
+                        <select name="size" ng-init="currentSize='599x487'" ng-change="change()" ng-model="currentSize">
+                            <option value="599x487" selected>599x487</option>
+                            <option value="344x249">344x249</option>
+                            <option value="429x375">429x375</option>
+                            <option value="514x422">514x422</option>
+                        </select>
+                    </div>
+
+                    <div class="option">
+                        <h4 class="sub-title">Start on</h4>
+
+                        <select name="template" ng-model="currentTemplate" ng-init="currentTemplate='t1'">
+                            <option value="t1">Template 1</option>
+                            <option value="t2">Template 2</option>
+                            <option value="t3">Template 3</option>
+                            <option value="t4">Template 4</option>
+                            <option value="t5">Template 5</option>
+                        </select>
+                    </div>
+
+                </div>
+                <h4>Link</h4>
+                <input type="text" name="link" id="link" ng-model="editorurl" value="http://www.getboarded.com/editor/ ">
+
+            </form>
+        </div>
+    </div>
+    <div class="example">
+
+    </div>
+</div>

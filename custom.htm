@@ -1,0 +1,721 @@
+
+<div class="contain">
+    <div class="navigation-bar">
+        <div class="logo">
+            <img src="images/gBlogo-white.png" class="image">
+        </div>
+
+        <ul class="nav">
+            <li>
+                <a href="#!introduction" onclick="winScroll(0,0)"> INTRODUCTION</a>
+            </li>
+            <li><a href="#!editor" onclick="winScroll(0,0)"> EDITOR</a></li>
+            <!--
+            <li><a href="#!digital_footprint" onclick="winScroll(0,0)"> DIGITAL FOOTPRINT</a></li>
+            -->
+            <li><a href="#!ats" onclick="winScroll(0,0)"> ATS</a></li>
+            <li><a href="#!resume_parser" onclick="winScroll(0,0)"> RESUME PARSER</a></li>
+            <!--
+            <li><a href="#!opportunities" onclick="winScroll(0,0)"> OPPORTUNITIES</a></li>
+            -->
+            <li class="active">
+                <a href="#!custom" onclick="winScroll(0,0)"> CUSTOM</a>
+                <ul>
+                    <li><a class="sub-division" onclick="winScroll(0,0)">Custom Overview</a> </li>
+                    <li><a class="sub-division" onclick="winScroll(0,220)">Task 1: Authorization</a> </li>
+                    <li><a class="sub-division" onclick="winScroll(0,1450)">Task 2: Data Collection</a> </li>
+                    <li><a class="sub-division" onclick="winScroll(0,7230)">Task 3: Data Display</a> </li>
+                    <li><a class="sub-division" onclick="winScroll(0,9600)">Task 4: Resume Download</a> </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="content">
+            <h3>Custom Overview</h3>
+            <p>
+                Want to build your own APP on our data? CUSTOM adds additional API functionality to the Statement of
+                Work for GetBoarded. The scope of work is to create APIs which will be consumed by third party clients
+                in order to enable them to use GetBoarded’s resume creation functionality within their respective
+                products or platforms.
+            </p>
+        </div>
+        <div class="content">
+            <h3>TASK 1 : Authorization / User Creation</h3>
+            <p>
+                Users accessing the GetBoarded platform from third party services would have already been authorized by
+                their respective platforms. The system needs to identify such users and provide a seamless experience.
+                In other words, although there is no authorization needed, the system should only accept registered
+                students. The list of eligible students will be provided beforehand. Any user who is not authorized
+                should be notified.
+                <br>
+                This activity has the following subtasks:
+            </p>
+            <ul class="list">
+                <li><b>Input</b> should be some form of userId. Additional authorization tokens may / may not be added
+                </li>
+                <li><b>Output:</b> Should have an authorization token which will be used as input to every other API.</li>
+                <li><b>Message:</b> Output message “User not Authorized” for failed authorization.</li>
+            </ul>
+            <h5 class="highlighted">Deliverables</h5>
+
+            <h5>1.	CREATE new user (Registration only)</h5>
+            <p>For the present API, it’s a registration API for a new user. Parameters to be passed are email, password,
+                first name, last name and authentication token. In the same order as mentioned.
+            </p>
+            <img class="screen" src="images/Editor%20Screens/01-about.png">
+
+            <h5>2.	CREATE new user (Complete Resume)</h5>
+            <p>For the present API, it’s a registration API for a new user. Parameters to be passed are email, password,
+                first name, last name and authentication token along with all user info as defined in seprate save calls.
+            </p>
+            <h5 class="highlighted">Assumptions</h5>
+            <ul class="sub-list">
+                <li>
+                    <b>Assumption 1:</b> The client platform will provide the user id to be authorized
+                </li>
+                <li>
+                    <b>Assumption 2:</b> Validation will be done against registered users which will be provided beforehand
+                    by the client. However, new users need not have any other data stored with GetBoarded. (This is for
+                    first time users only.)
+                </li>
+                <li>
+                    <b>Assumption 3:</b> In case of system errors, suitable messages will be displayed.
+
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            <h3>TASK 2 : Data Collection</h3>
+            <p>
+                Once authorization is done, users will be required to enter all the required data needed to create the
+                resume. This will be entered from the client’s platform. API should send out an output message if
+                required data is not entered. This API should also accept the authorization token generated by the
+                authorization API. The client should have a way to know that the data they have entered has been saved.
+                Which means there has to be some form of success notification to the client which they will use in
+                whichever way they like.
+                <br>
+                This activity has the following subtasks:
+            </p>
+            <ul class="list">
+                <li>
+                    <b>Input</b> should be resume data, authorization token and user id.
+                </li>
+                <li>
+                    <b>Output:</b> Success Notification on successful save
+                </li>
+                <li>
+                    <b>Message:</b> Output message “User not Authorized” for failed authorization. Suitable messages for system errors.
+                </li>
+            </ul>
+            <h5 class="highlighted">Deliverables</h5>
+            <h5>1.	Save CONTACT details</h5>
+            <p>
+                ‘Contact details’ is the second tab of the editor. The email field is non-editable and only works in
+                a GET call.
+            </p>
+            <img class="screen" src="images/Editor Screens/02-contact.png">
+
+            <h5>2.	Save EXPERIENCE details</h5>
+            <p>
+                ‘Experience details’ is the third tab of the editor. It takes in the experience details including
+                company and location of work and also has a possibility of showing it on a map in the resume. This is
+                useful in a case a person wants to show his global experience.
+            </p>
+            <img src="images/Editor Screens/03-experience.png" class="screen">
+
+            <h5>3. Save EDUCATION details</h5>
+            <p>
+                ‘Education details’ is the fourth tab of the editor. It takes in the education details of the user.
+
+            </p>
+            <img src="images/Editor Screens/04-education.png" class="screen">
+
+            <h5>4.	Save SKILLS information</h5>
+            <p>
+                ‘Skill details’ are part of the fifth tab of the editor. Skills, Languages and Hobbies are all taken
+                in together within this tab along with proficiency details and related icons for hobbies. For Skills:
+
+            </p>
+            <img src="images/Editor Screens/05-skills.png" class="screen">
+
+            <h5>5.	Save LANGUAGE information</h5>
+            <p>
+                Languages along with proficiency details.
+            </p>
+
+            <h5>6.	HOBBIES information</h5>
+            <p>
+                Hobbies are associated with Icons hence the POST methods are not available for this information.
+                The user will have to use the editor to input the hobby and select its corresponding icon.
+            </p>
+
+
+            <h5>7.	Save PERSONALITY information</h5>
+            <p>
+                Personality section takes in the personality data in terms of 18 brand archetypes and opens the
+                personality report lab for career guides and self-development.
+            </p>
+            <img src="images/Editor Screens/06-personality.png" class="screen">
+
+            <h5>8.	Save VIDEO information</h5>
+            <p>
+                Video information can be provided in terms of the Video links of youtube. For uploading and recording
+                functionalities user will have to launch the editor and post videos.
+
+            </p>
+            <img src="images/Editor Screens/07-videos.png" class="screen">
+
+            <h5>9.	Save PROJECT information</h5>
+            <p>
+                Project information can be provided in eighth tab of the editor. For uploading pics of the project the
+                user will have to launch the editor and edit the projects posted after posting the details below.
+
+            </p>
+            <img src="images/Editor Screens/08-projects.png" class="screen">
+
+            <h5>10.	Save AWARDS information</h5>
+            <p>
+                Award information is stored in ninth Tab along with recommendations.
+
+            </p>
+            <img src="images/Editor Screens/09-awards.png" class="screen">
+
+            <h5>11.	Save RECOMMENDATIONS</h5>
+            <p>
+                Recommendations information is stored in ninth Tab along with awards.
+            </p>
+
+
+            <h5>12.	Save WIDGETS information</h5>
+            <p>
+                Widgets information is stored in tenth Tab along. This functionality will be used to draw out custom
+                widgets provided by other sites into the resume.
+
+            </p>
+            <img src="images/Editor Screens/10-widgets.png" class="screen">
+
+            <h5>13.	Save ADDITIONAL INFO</h5>
+            <p>
+                ‘Additional information’ is stored in tenth Tab along. This functionality will be used to draw out
+                custom widgets provided by other sites into the resume.
+
+            </p>
+            <img src="images/Editor Screens/11-additional info.png" class="screen">
+
+            <h5 class="highlighted">Assumptions</h5>
+            <ul class="sub-list">
+                <li>
+                    <b>Assumption 1:</b> The forms for input data may be delivered whole or part by part. The API should
+                    be able to handle this. Keep in mind that it is the client who is designing the form and they can
+                    design it to submit the whole data at once or a multi-part form which will submit data part by part.
+                </li>
+                <li>
+                    <b>Assumption 2:</b> In case of system errors, suitable messages will be displayed.
+                </li>
+            </ul>
+
+        </div>
+        <div class="content">
+            <h3>TASK 3: Data Display</h3>
+            <p>
+                Data once saved should be retrieved. This API will display all data that is saved for the particular
+                user. This will be used by the client to populate the forms or even update their forms.
+                <br>
+                This activity has the following subtasks:
+            </p>
+            <ul class="list">
+                <li>
+                    <b>Input</b> should be userid, authorization token and an optional update data. If update data is
+                    populated, the data should be updated accordingly
+                </li>
+                <li>
+                    <b>Output:</b> Success Notification on successful update. Also,all the saved data for the particular user.
+                </li>
+                <li>
+                    <b>Message:</b> Output message “User not Authorized” for failed authorization. Suitable messages for system error
+                </li>
+            </ul>
+
+            <h5 class="highlighted">Deliverables</h5>
+
+            <h5>1.	Get User REGISTRATION Info</h5>
+            <p>
+                <b>Login API - GET - </b> email, password, authToken - return - userID, FirstName, LastName, ProfilePic,
+                AboutMe, Profession, Overview
+                <a target="_blank" href="http://www.getboarded.com/index.php/editor/getLogin/semabongo@gmail.com/1111">
+                    http://www.getboarded.com/index.php/editor/getLogin/semabongo@gmail.com/1111
+                </a>
+            </p>
+
+            <h5>2.	Get CONTACT Info</h5>
+            <p>
+
+                <b>GetContact</b> - userID, authToken - return contact all fields <br> url as example:
+                <a target="_blank" href="http://www.getboarded.com/api/api.php?getContact&userid=57&authToken=I5SXIQTPMFZGIZLENFZU63TMNFXGKMJSGM2DKNRW">
+                    http://www.getboarded.com/api/api.php?getContact&userid=57&authToken=I5SXIQTPMFZGIZLENFZU63TMNFXGKMJSGM2DKNRW
+                </a>
+            </p>
+
+            <h5>3.	Get EXPERIENCE Info</h5>
+            <p>
+                <b>GetExperience</b> - userID, authToken - return all experience data
+                <a target="_blank" href="http://www.getboarded.com/api/api.php?getExperience&userid=57&authToken=I5SXIQTPMFZGIZLENFZU63TMNFXGKMJSGM2DKNRW">
+                    http://www.getboarded.com/api/api.php?getExperience&userid=57&authToken=I5SXIQTPMFZGIZLENFZU63TMNFXGKMJSGM2DKNRW
+                </a>
+            </p>
+
+            <h5>4.	Get EDUCATION Info</h5>
+            <p>
+                <b>GetEducation</b> - userID, authToken -  return all Education data
+                <a target="_blank" href="http://www.getboarded.com/api/api.php?getEducation&userid=57&authToken=I5SXIQTPMFZGIZLENFZU63TMNFXGKMJSGM2DKNRW">
+                    http://www.getboarded.com/api/api.php?getEducation&userid=57&authToken=I5SXIQTPMFZGIZLENFZU63TMNFXGKMJSGM2DKNRW
+                </a>
+            </p>
+
+            <h5>5.	Get SKILLS Info</h5>
+            <p>
+                <b>GetSkills</b> - userID, authToken - return all skill data
+                <a target="_blank" href="http://www.getboarded.com/api/api.php?getSkills&userid=57&authToken=I5SXIQTPMFZGIZLENFZU63TMNFXGKMJSGM2DKNRW">
+                    http://www.getboarded.com/api/api.php?getSkills&userid=57&authToken=I5SXIQTPMFZGIZLENFZU63TMNFXGKMJSGM2DKNRW
+                </a>
+            </p>
+
+            <h5>6.	Get PERSONALITY Info</h5>
+            <p>
+                <b>GetPersonality</b> - userID, authToken - return all Personality Data
+                <a target="_blank" href="http://www.getboarded.com/api/api.php?getPersonality&userid=57&authToken=I5SXIQTPMFZGIZLENFZU63TMNFXGKMJSGM2DKNRW">
+                    http://www.getboarded.com/api/api.php?getPersonality&userid=57&authToken=I5SXIQTPMFZGIZLENFZU63TMNFXGKMJSGM2DKNRW
+                </a>
+            </p>
+
+            <h5>7.	Get User VIDEOS</h5>
+            <p>
+                <b>GetVideos</b> - userID, authToken - return all Videos data
+                <a target="_blank" href="http://www.getboarded.com/api/api.php?getVideos&userid=57&authToken=I5SXIQTPMFZGIZLENFZU63TMNFXGKMJSGM2DKNRW">
+                    http://www.getboarded.com/api/api.php?getVideos&userid=57&authToken=I5SXIQTPMFZGIZLENFZU63TMNFXGKMJSGM2DKNRW
+                </a>
+            </p>
+
+            <h5>8.	Get User PROJECTS</h5>
+            <p>
+                <b>GetProjects</b> - userID, authToken - return all projects data
+                <a target="_blank" href="http://www.getboarded.com/api/api.php?getProjects&userid=57&authToken=I5SXIQTPMFZGIZLENFZU63TMNFXGKMJSGM2DKNRW">
+                    http://www.getboarded.com/api/api.php?getProjects&userid=57&authToken=I5SXIQTPMFZGIZLENFZU63TMNFXGKMJSGM2DKNRW
+                </a>
+            </p>
+
+            <h5>9.	Get User AWARDS</h5>
+            <p>
+                <b>GetAwards</b> - userID, authToken - return all awards data
+                <a target="_blank" href="http://www.getboarded.com/api/api.php?getAwards&userid=57&authToken=I5SXIQTPMFZGIZLENFZU63TMNFXGKMJSGM2DKNRW">
+                    http://www.getboarded.com/api/api.php?getAwards&userid=57&authToken=I5SXIQTPMFZGIZLENFZU63TMNFXGKMJSGM2DKNRW
+                </a>
+            </p>
+
+            <h5>10.	Get WIDGET Info</h5>
+            <p>
+                <b>GetWidgets</b> - userID, authToken - return all widgets
+                <a target="_blank" href="http://www.getboarded.com/api/api.php?getWidgets&userid=57&authToken=I5SXIQTPMFZGIZLENFZU63TMNFXGKMJSGM2DKNRW">
+                    http://www.getboarded.com/api/api.php?getWidgets&userid=57&authToken=I5SXIQTPMFZGIZLENFZU63TMNFXGKMJSGM2DKNRW
+                </a>
+            </p>
+
+            <h5>11.	Get ADDITIONAL Info</h5>
+            <p>
+                <b>GetAdditionalInfo</b>-
+            </p>
+
+            <h5 class="highlighted">Assumptions</h5>
+            <ul class="sub-list">
+                <li>
+                    <b>Assumption 1 :</b> The forms for input data may be delivered whole or part by part.
+                    The API should be able to handle this. Keep in mind that it is the client who is designing the
+                    form and they can design it to submit the whole data at once or a multi-part form which will submit
+                    data part by part.
+                </li>
+                <li>
+                    <b>Assumption 2 :</b> In case of system errors, suitable messages will be displayed.
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h3>TASK 4: Resume Download</h3>
+            <p>
+                On invoking this API, the user should be able to get a PDF/ WORD document with the resume design
+                chosen for the cohort they belong to.
+                <br>
+                This activity has the following subtasks:
+
+            </p>
+            <ul class="list">
+                <li>
+                    <b>Input</b> should be userId, authorization token. And document format
+                </li>
+                <li>
+                    <b>Output:</b> Resume in chosen format
+                </li>
+                <li>
+                    <b>Message:</b> Output message “User not Authorized” for failed authorization.
+                    Suitable messages for system errors.
+                </li>
+            </ul>
+            <h5 class="highlighted">Assumptions</h5>
+            <ul class="sub-list">
+                <li>
+                    <b>Assumption 1:</b> This will check if all required data is present to fully populate the API.
+                    Although the client form should handle this, our API should be robust enough to handle this scenario.
+                </li>
+                <li>
+                    <b>Assumption 2:</b> In case of system errors, suitable messages will be displayed.
+
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div class="example" ng-controller="customCtrl">
+        <div class="sample-area" style="margin-top: 655px">
+
+            <div class="sample">
+
+                <p><b>URL:</b> http:// www.getboarded.com/editor/postUser/</p>
+                <p><b>Method:</b> POST</p>
+                <p><b>Parameters:</b> email,password, firstname,lastname</p>
+                <p><b>Note:</b> all are required</p>
+                <p><b>Success response:</b>
+                    {   "status": 1,   "msg": "User saved successfully." }</p>
+                <p><b>Error response:</b>
+                    Query error:  "status" => 0, "message" => "An error occurred!"</p>
+            </div>
+            <div class="sample-btn" ng-click="toggleCall(!sampleBtn)" ng-model="sampleBtn">Sample Call</div>
+            <pre class="calls" ng-hide="sampleBtn">
+<span class="punctuator">var</span> dataString = <span class="string">"email="+email+"&password="+password+”&firstname=”firstname”&lastname=”lastname</span>;
+<span class="punctuator">$.ajax</span>({  <b>url:</b><span class="string">”http://www.getboarded.com/editor/postUser/”</span>,
+<b>data:</b>dataString ,
+<b>method:</b><span class="string"> ”POST”</span> ,
+<b>success:</b><span class="punctuator">function</span>(data)
+{
+ <span class="punctuator">alert</span>(data);
+}
+});
+            </pre>
+
+        </div>
+
+        <div class="sample-area" style="margin-top: 725px">
+            <div class="sample">
+                <p><b>URL:</b> http://www.getboarded.com/api/postAPI/postContact.php?userID=894&website=masoka@gmail.com&skype=xxxx&phone=2345342312</p>
+
+                <p><b>Method:</b> POST</p>
+                <p><b>Parameters:</b> userID, website, skype, phone</p>
+                <p><b>Note:</b> all are NOT required</p>
+                <p><b>Success response:</b>
+                    {   "status": 1,   "msg": "User updated successfully!" }</p>
+                <p><b>Error response:</b>
+                    Query error:  "status" => 0, "msg" => "Error adding!"
+                    Method error: "status" => 0, "msg" => "Request method not accepted
+                </p>
+
+            </div>
+            <div class="sample-btn" ng-click="toggleCall(!sampleBtn)" ng-model="sampleBtn">Sample Call</div>
+            <pre class= "calls" ng-hide="sampleBtn">
+<span class="punctuator">var</span> dataString = <span class="string">"email="+email+"&password="+password+”&firstname=”firstname”&lastname=”lastname</span>;
+<span class="punctuator">$.ajax</span>({
+<b>url:</b><span class="string">”http:// www.getboarded.com /api/postAPI/postContact.php?userID=894&website=masoka.com&skype=xxxx&phone=2345342312”</span>,
+<b>method:</b><span class="string">”POST”</span>,
+<b>success:</b><span class="punctuator">function</span>(data)
+{
+ <span class="punctuator">alert</span>(data);
+}
+});
+
+            </pre>
+
+        </div>
+
+        <div class="sample-area" style="margin-top: 60px">
+            <div class="sample">
+            <p><b>URL:</b> http://www.getboarded.com/api/postAPI/postExperience.php?userID=894&job_title=xxx&company=yyy&city=zzz</p>
+            <p><b>Method:</b> POST</p>
+            <p><b>Parameters:</b> userID, job_title, company, city</p>
+            <p><b>Note:</b> all are required</p>
+            <p><b>Success response:</b>
+            {
+            "status": 1,
+            "msg": "Experience updated successfully!
+                }</p>
+            <p><b>Error response:</b>
+            Query error:  "status" => 0, "msg" => "Error adding!"
+            Method error: "status" => 0, "msg" => "Request method not accepted"
+            </p>
+
+            </div>
+            <div class="sample-btn" ng-click="toggleCall(!sampleBtn)" ng-model="sampleBtn">Sample Call</div>
+            <pre class="calls" ng-hide="sampleBtn">
+<span class="punctuator">var</span> dataString = <span class="string">"email="+email+"&password="+password+”&firstname=”firstname”&lastname=”lastname</span>;
+<span class="punctuator">$.ajax</span>({
+<b>url</b>:<span class="string">” http:// www.getboarded.com/api/postAPI/postExperience.php?userID=894&job_title=masoka@gmailcom&company=goplayr&city=xxxx”</span>,
+<b>method</b>:<span class="string">”POST”</span>,
+<b>success</b>:<span class="punctuator">function</span>(data)
+	{
+                <span class="punctuator">alert</span>(data);
+	}
+});
+
+            </pre>
+        </div>
+
+        <div class="sample-area" style="margin-top: 60px">
+            <div class="sample">
+                <p><b>URL:</b> http://www.getboarded.com/api/postAPI/postEducation.php?userID=894&degree_certification=xxx&institution_name=yyy&city=zzz</p>
+                <p><b>Method:</b> POST</p>
+                <p><b>Parameters:</b> userID, degree_certification, institution_name, city</p>
+                <p><b>Note:</b> all are required</p>
+                <p><b>Success response:</b>
+                    {
+                    "status": 1,
+                    "msg": "Education updated successfully!
+                    }</p>
+                <p>
+                    <b>Error response:</b>
+                    Query error:  "status" => 0, "msg" => "Error adding!"
+                    Method error: "status" => 0, "msg" => "Request method not accepted"
+                </p>
+
+
+            </div>
+            <div class="sample-btn" ng-click="toggleCall(!sampleBtn)" ng-model="sampleBtn">Sample Call</div>
+            <pre class="calls" ng-hide="sampleBtn">
+<span class="punctuator">var</span> dataString = <span class="string">"email="+email+"&password="+password+”&firstname=”firstname”&lastname=”lastname</span>;
+<span class="punctuator">$.ajax</span>({
+<b>url</b>:<span class="string">”http://www.getboarded.com/api/postAPI/postEducation.php?userID=894&degree_certification=bachelor&institution_name=goplayr&city=pune”</span>,
+<b>method</b>:<span class="string">”POST”</span>,
+<b>success</b>:<span class="punctuator">function</span>(data){
+<span class="punctuator">alert</span>(data);
+}
+});
+            </pre>
+        </div>
+
+        <div class="sample-area" style="margin-top: 60px">
+
+            <div class="sample">
+            <p><b>URL:</b> http://www.getboarded.com/api/postAPI/postSkills?userID=894& skill_name=xxx& skill_Proficiency=[1-5]</p>
+            <p><b>Method:</b> POST</p>
+            <p><b>Parameters:</b> userID, skill_name, skill_Proficiency</p>
+            <p><b>Note:</b> all fields are required</p>
+            <p><b>Success response:</b>
+            {
+            "status": 1,
+            "msg": "Skill updated successfully!
+                }</p>
+            <p><b>Error response:</b>
+            Query error:  "status" => 0, "msg" => "Error adding!"
+            Method error: "status" => 0, "msg" => "Request method not accepted"
+            </p>
+
+            </div>
+            <div class="sample-btn" ng-click="toggleCall(!sampleBtn)" ng-model="sampleBtn">Sample Call</div>
+            <pre class="calls" ng-hide="sampleBtn">
+<span class="punctuator">var</span> dataString = <span class="string">"email="+email+"&password="+password+”&firstname=”firstname”&lastname=”lastname”</span>;
+<span class="punctuator">$.ajax</span>({
+<b>url</b>:<span class="string">” http://www.getboarded.com/api/postAPI/postSkills?userID=894&skill_name=analytics&skill_Proficiency=4”</span>,
+<b>method</b>:<span class="string">”POST”</span>,
+<b>success</b>:<span class="punctuator">function</span>(data){
+<span class="punctuator">alert</span>(data);
+}
+});
+            </pre>
+        </div>
+
+        <div class="sample-area" style="margin-top: 60px">
+
+            <div class="sample">
+                <p><b>URL:</b> http://www.getboarded.com/api/postAPI/postLangs?userID=894& lang_name=xxx& lang_Proficiency=[0-5]</p>
+                <p><b>Method:</b> POST</p>
+                <p><b>Parameters: </b>userID, lang_name, lang_Proficiency</p>
+                <p><b>Note:</b> all are required</p>
+                <p><b>Success response:</b>
+                {
+                "status": 1,
+                "msg": "Language updated successfully!
+                    }</p>
+                <p><b>Error response:</b>
+                Query error:  "status" => 0, "msg" => "Error adding!"
+                Method error: "status" => 0, "msg" => "Request method not accepted"
+                </p>
+
+            </div>
+            <div class="sample-btn" ng-click="toggleCall(!sampleBtn)" ng-model="sampleBtn">Sample Call</div>
+            <pre class="calls" ng-hide="sampleBtn">
+<span class="punctuator">var</span> dataString = <span class="string">"email="+email+"&password="+password+”&firstname=”firstname”&lastname=”lastname</span>;
+<span class="punctuator">$.ajax</span>({
+<b>url</b>:<span class="string">” http://www.getboarded.com/api/postAPI/postLangs?userID=894&lang_name=Spanish&lang_Proficiency=4”</span>,
+<b>method</b>:<span class="string">”POST”</span>,
+<b>success</b>:<span class="punctuator">function</span>(data){
+<span class="punctuator">alert</span>(data);
+}
+});
+ </pre>
+
+        </div>
+
+        <div class="sample-area" style="margin-top: 260px">
+            <div class="sample">
+                <p><b>URL:</b> http://www.getboarded.com/api/postAPI/postVideos?userID=894&youtube_link=xxxxx& playlist_link=xxxxxxxxxx&description=xxxxxx</p>
+                <p><b>Method:</b> POST</p>
+                <p><b>Parameters:</b> userID, youtube_link, playlist_link, description</p>
+                <p><b>Note:</b> all are required</p>
+                <p><b>Success response:</b>
+                {
+                "status": 1,
+                "msg": "Video updated successfully!
+                    }</p>
+                <p><b>Error response:</b>
+                Query error:  "status" => 0, "msg" => "Error adding!"
+                Method error: "status" => 0, "msg" => "Request method not accepted"
+                </p>
+
+            </div>
+            <div class="sample-btn" ng-click="toggleCall(!sampleBtn)" ng-model="sampleBtn">Sample Call</div>
+            <pre class="calls" ng-hide="sampleBtn">
+<span class="punctuator">var</span> dataString = <span class="string">"email="+email+"&password="+password+”&firstname=”firstname”&lastname=”lastname</span>;
+<span class="punctuator">$.ajax</span>({
+<b>url</b>:<span class="string">”http://www.getboarded.com/api/postAPI/postVideos?userID=894&youtube_link=xxxxx&playlist_link=xxxxxxxxxx&description=xxxxxx”</span>,
+<b>method</b>:<span class="string">”POST”</span>,
+<b>success</b>:<span class="punctuator">function</span>(data){
+<span class="punctuator">alert</span>(data);
+}
+});
+
+            </pre>
+        </div>
+
+        <div class="sample-area" style="margin-top: 60px">
+            <div class="sample">
+                <p><b>URL:</b> http://www.getboarded.com/api/postAPI/postProjects?userID=894& Title=xxxxx& Description_for=xxxxxxxxxx&organization=goplayr</p>
+                <p><b>Method:</b> POST</p>
+                <p><b>Parameters:</b> userID, Title,Description, organization</p>
+                <p><b>Note:</b> all fields are required</p>
+                <p><b>Success response:</b>
+                {
+                "status": 1,
+                "msg": "Project updated successfully!
+                    }</p>
+                <p><b>Error response:</b>
+                Query error:  "status" => 0, "msg" => "Error adding!"
+                Method error: "status" => 0, "msg" => "Request method not accepted"
+                </p>
+            </div>
+            <div class="sample-btn" ng-click="toggleCall(!sampleBtn)" ng-model="sampleBtn">Sample Call</div>
+            <pre class="calls" ng-hide="sampleBtn">
+<span class="punctuator">var</span> dataString = <span class="string">"email="+email+"&password="+password+”&firstname=”firstname”&lastname=”lastname</span>;
+<span class="punctuator">$.ajax</span>({
+<b>url</b>:<span class="string">”http://www.getboarded.com/api/postAPI/postProjects?userID=894& Title=xxxxx& Description_for=xxxxxxxxxx&organization=goplayr”</span>,
+<b>method</b>:<span class="string">”POST”</span>,
+<b>success</b>:<span class="punctuator">function</span>(data){
+<span class="punctuator">alert</span>(data);
+	}
+});
+            </pre>
+        </div>
+
+        <div class="sample-area" style="margin-top: 60px">
+            <div class="sample">
+                <p><b>URL:</b> http://www.getboarded.com/api/postAPI/postAwards?userID=894& awdtitle=xxxxx&award_for=xxxxxxxxxx& award_city=pune&award_summary=xxx&organization=yyy</p>
+                <p><b>Method:</b> POST</p>
+                <p><b>Parameters:</b> userID, awdtitle,award_for, award_city, award_summary, organization</p>
+                <p><b>Note:</b> all fields are required</p>
+                <p><b>Success response:</b>
+                {
+                "status": 1,
+                "msg": "Award updated successfully!
+                    }</p>
+                <p><b>Error response:</b>
+                Query error:  "status" => 0, "msg" => "Error adding!"
+                Method error: "status" => 0, "msg" => "Request method not accepted"
+                </p>
+
+            </div>
+            <div class="sample-btn" ng-click="toggleCall(!sampleBtn)" ng-model="sampleBtn">Sample Call</div>
+            <pre class="calls" ng-hide="sampleBtn">
+<span class="punctuator">var</span> dataString = <span class="string">"email="+email+"&password="+password+”&firstname=”firstname”&lastname=”lastname</span>;
+<span class="punctuator">$.ajax</span>({
+<b>url</b>:<span class="string">” http://www.getboarded.com/api/postAPI/postAwards?userID=894&awdtitle=xxxxx& award_for=xxxxxxxxxx& award_city=pune& award_summary=xxx&organization=goplayr”</span>,
+<b>method</b>:<span class="string">”POST”</span>,
+<b>success</b>:<span class="punctuator">function</span>(data){
+<span class="punctuator">alert</span>(data);
+	}
+});
+
+            </pre>
+        </div>
+
+        <div class="sample-area" style="margin-top: 115px">
+            <div class="sample">
+                <p><b>URL:</b> http://www.getboarded.com/api/postAPI/postAwards?userID=894& awdtitle=xxxxx&award_for=xxxxxxxxxx& award_city=pune&award_summary=xxx&organization=yyy</p>
+                <p><b>Method:</b> POST</p>
+                <p><b>Parameters:</b> userID, awdtitle,award_for, award_city, award_summary, organization</p>
+                <p><b>Note:</b> all fields are required</p>
+                <p><b>Success response:</b>
+                {
+                "status": 1,
+                "msg": "Award updated successfully!
+                    }</p>
+                <p><b>Error response:</b>
+                Query error:  "status" => 0, "msg" => "Error adding!"
+                Method error: "status" => 0, "msg" => "Request method not accepted"
+                </p>
+            </div>
+            <div class="sample-btn" ng-click="toggleCall(!sampleBtn)" ng-model="sampleBtn">Sample Call</div>
+            <pre class="calls" ng-hide="sampleBtn">
+<span class="punctuator">var</span> dataString = <span class="string">"email="+email+"&password="+password+”&firstname=”firstname”&lastname=”lastname</span>;
+<span class="punctuator">$.ajax</span>({
+<b>url</b>: <span class="string">"http://www.getboarded.com/api/postAPI/postWidget?userID=894&type=sdfsddfg& url=goplayr.com”</span>,
+<b>method</b>:<span class="string">”POST”</span>,
+<b>success</b>:<span class="punctuator">function</span>(data){
+<span class="punctuator">alert</span>(data);
+	}
+});
+
+            </pre>
+        </div>
+        <div class="sample-area" style="margin-top: 60px">
+            <div class="sample">
+                <p><b>URL: </b>http://www.getboarded.com/api/postAPI/postAdditional?userID=894&additional_info=sdfsd dfg&additional_info_position=1</p>
+                <p><b>Method:</b> POST</p>
+                <p><b>Parameters:</b> userID, additional_info, additional_info_position</p>
+                <p><b>Note:</b> all fields are required</p>
+                <p><b>Success response:</b>
+                {
+                "status": 1,
+                "msg": "Info updated successfully!
+                    }</p>
+                <p><b>Error response:</b>
+                Query error:  "status" => 0, "msg" => "Error adding!"
+                Method error: "status" => 0, "msg" => "Request method not accepted"
+                </p>
+            </div>
+            <div class="sample-btn" ng-click="toggleCall(!sampleBtn)" ng-model="sampleBtn">Sample Call</div>
+            <pre class="calls" ng-hide="sampleBtn">
+<span class="punctuator">var</span> dataString = <span class="string">"email="+email+"&password="+password+”&firstname=”firstname”&lastname=”lastname</span>;
+<span class="punctuator">$.ajax</span>({
+<b>url</b>:<span class="string">”http://www.getboarded.com/api/postAPI/postAdditional?userID=894&additional_info=xxxxxxx&additional_info_position=1”</span>,
+<b>method</b>:<span class="string">”POST”</span>,
+<b>success</b>:<span class="punctuator">function</span>(data){
+<span class="punctuator">alert</span>(data);
+	}
+});
+
+            </pre>
+        </div>
+    </div>
+</div>
+<script>
+    console.log("script tag working");
+</script>

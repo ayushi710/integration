@@ -1,0 +1,99 @@
+<div class="contain">
+    <div class="navigation-bar">
+        <div class="logo">
+            <img src="images/gBlogo-white.png" class="image">
+        </div>
+
+        <ul class="nav">
+            <li>
+                <a href="#!introduction" onclick="winScroll(0,0)"> INTRODUCTION</a>
+            </li>
+            <li>
+
+                <a href="#!editor" onclick="winScroll(0,0)"> EDITOR</a>
+            </li>
+            <!--
+            <li><a href="#!digital_footprint" onclick="winScroll(0,0)"> DIGITAL FOOTPRINT</a></li>
+            -->
+            <li class="active">
+                <a href="#!ats" onclick="winScroll(0,0)"> ATS</a>
+                <ul>
+                    <li><a class="sub-division" onclick="winScroll(0,0)">ATS Overview</a> </li>
+                    <li><a class="sub-division" onclick="winScroll(0,300)">Getting Started Resources</a> </li>
+                </ul>
+            </li>
+            <li><a href="#!resume_parser" onclick="winScroll(0,0)"> RESUME PARSER</a></li>
+            <!--
+            <li><a href="#!opportunities" onclick="winScroll(0,0)"> OPPORTUNITIES</a></li>
+            -->
+            <li><a href="#!custom" onclick="winScroll(0,0)"> CUSTOM</a></li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="content">
+            <h3>ATS Overview</h3>
+            <p>
+                ATS stands for Applicant Tracking System, Getboarded editor can be implemented directly on your site to
+                receive job applications. All you need to do is put a small button to your application and then send as
+                much info you want as a query string to begin with the profile. Better yet, just upload a resume and
+                let the platform take care of parsing it into right fields.
+            </p>
+
+        </div>
+        <div class="content">
+            <h3>Getting Started Resources</h3>
+            <ul class="list">
+                <li>You can choose size of the editor to implement, the editor works in website mode, tablet mode and
+                    mobile mode seamlessly.</li>
+                <li>User email chosen will provide you with access to resume created through the implemented
+                    editor when you login to Getboarded.com</li>
+                <li>You can order a custom design and have your own resume created from within your platform</li>
+            </ul>
+            <div class="code_editor">
+                <form>
+                    <h4>User Email</h4>
+                    <input type="email" name="user_email"  placeholder="you@example.com" id="user_email">
+                    <h4>Embed</h4>
+                    <div id="embed2" ng-model="embed2">
+
+                        {{embed2}}
+
+                    </div>
+
+                    <div>
+                        <div class="option">
+                            <h4 class="sub-title" >Size(px)</h4>
+                            <select name="size" ng-init="currentSize2='599x487'" ng-change="change()" ng-model="currentSize2">
+                                <option value="599x487" selected>599x487</option>
+                                <option value="344x249">344x249</option>
+                                <option value="429x375">429x375</option>
+                                <option value="514x422">514x422</option>
+                            </select>
+                        </div>
+
+                        <div class="option">
+                            <h4 class="sub-title">Start on</h4>
+
+                            <select name="template" ng-model="currentTemplate2" ng-init="currentTemplate2='t1'">
+                                <option value="t1">Template 1</option>
+                                <option value="t2">Template 2</option>
+                                <option value="t3">Template 3</option>
+                                <option value="t4">Template 4</option>
+                                <option value="t5">Template 5</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <h4>Link</h4>
+                    <input type="text" name="link" id="link2" ng-model="url2" value="http://www.getboarded.com/university/apply/msu">
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="example">
+
+    </div>
+</div>

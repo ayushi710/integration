@@ -1,0 +1,33 @@
+.list,.sub-list
+{
+    font-size: 13px;
+    font-family: sans-serif;
+    color: rgba(105, 101, 100, 0.76);
+    list-style-type: disc;
+    margin-left: 15px;
+}
+.list li, .sub-list li
+{
+    padding: 5px 0 5px 0;
+}
+h1
+{
+    color: rgba(105, 105, 105, 1.76) ;
+    margin: 5px 0 18px 0;
+}
+.link
+{
+    color: #03A9F4;
+    display: inline;
+}
+.link:hover
+{
+    background-color: transparent;
+    text-decoration: underline;
+}
+.code_area
+{
+    display: block;
+    margin: 5px 0 5px 0;
+    background-color: #FFF8E1;
+}

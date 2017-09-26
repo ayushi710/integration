@@ -1,0 +1,140 @@
+
+<div class="contain">
+    <div class="navigation-bar">
+        <div class="logo">
+            <img src="images/gBlogo-white.png" class="image">
+        </div>
+
+        <ul class="nav">
+            <li class="active">
+                <a href="#!introduction" onclick="winScroll(0,0)"> INTRODUCTION</a>
+                <div id="intro_list">
+                    <ul>
+                        <li><a class="sub-division" onclick="winScroll(100,0)">Overview</a> </li>
+                        <li><a class="sub-division" onclick="winScroll(0,350)">Authentication</a> </li>
+                        <li><a class="sub-division" onclick="winScroll(0,1150)">Response Codes</a> </li>
+                        <li><a class="sub-division" onclick="winScroll(0,1300)">Rate Limiting</a> </li>
+                        <li><a class="sub-division" onclick="winScroll(0,1300)">Social Network Type</a> </li>
+
+                    </ul>
+                </div>
+
+            </li>
+            <li><a href="#!editor" onclick="winScroll(0,0)"> EDITOR</a></li>
+            <!--
+            <li><a href="#!digital_footprint" onclick="winScroll(0,0)"> DIGITAL FOOTPRINT</a></li>
+            -->
+            <li><a href="#!ats" onclick="winScroll(0,0)"> ATS</a></li>
+            <li><a href="#!resume_parser" onclick="winScroll(0,0)"> RESUME PARSER</a></li>
+            <!--
+            <li><a href="#!opportunities" onclick="winScroll(0,0)"> OPPORTUNITIES</a></li>
+            -->
+            <li><a href="#!custom" onclick="winScroll(0,0)"> CUSTOM</a></li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="content">
+            <h3>Overview</h3>
+            <p>
+                getBoarded Developer APIs are used to manage and enhance contact information.
+                Use our APIs to provide social profiles in your app, improve contacts in address books,
+                enrich CRM information, or create highly personalized marketing campaigns.
+                getBoarded exposes its data via an Application Programming Interface (API),
+                so developers can interact in a programmatic way with the getBoarded application.
+                This document is the official reference for that functionality.
+            </p>
+            <p>
+                Our APIs are RESTful. Responses are delivered in JSON format with most endpoints also
+                providing support for XML format. Some endpoints support HTML formatted responses.
+                <a href="#" target="_blank">Sign up for a free account</a> to get an API Key and get started.
+            </p>
+        </div>
+        <div class="content">
+            <h3>Authentication</h3>
+            <p>
+                All requests to all endpoints require you to specify your unique API key.
+                The API Key is assigned to you by getBoarded and is used to identify and authorize each request.
+                Your API key should be kept private, and should never be displayed publicly.
+
+            </p>
+            <p>
+                getBoarded supports an alternative means for authentication, which is by specifying the API key
+                in the query parameter in the form of <b>apiKey=</b> . Keep in mind that we recommend use of the HTTP header
+                field rather than the apiKey query parameter as it provides an added level of security.
+                Although we utilize HTTPS to ensure that all requests are encrypted for network transport,
+                there is a possibility that the plain-text URI, with the value of the apiKey, might appear
+                in logs of HTTP servers which process the requests. Additionally, there are spyware exploits whereby
+                certain browser extensions track and aggregate browsing behavior and sell that data to third parties,
+                again use of <b>apiKey</b> as a query parameter could lend itself to unintentional exposure of your API key.
+            </p>
+            <div class="note">
+                <div class="heading">NOTE</div>
+                Only use query parameter based authentication for testing purposes, and first ensure you don’t have browser
+                extensions that are tracking your browser history! Browser extensions have access to every URL you open
+                and you could inadvertently expose your API key.
+            </div>
+            <p>
+                For additional security, getBoarded supports an enterprise level feature called Mutual Authentication.
+                Please contact your account manager for more details.
+            </p>
+            <div class="note">
+                <div class="heading">NOTE</div>
+
+                    Solutions should not call the GetBoarded API suite using client-side javascript.
+                    Doing so will expose your API key to users of your application. It’s recommended thatyou build a
+                    server-side endpoint to proxy traffic to and from the getBoarded API if direct access is necessary.
+                <br>
+                    CORS headers are deprecated in our offering and will be removed at a future date.
+
+            </div>
+        </div>
+        <div class="content">
+            <h3>Response Code</h3>
+            <p>
+                All successful responses are returned in JSON, XML, HTML or vCard, depending on the response format you request.
+                On our paid endpoints, such as the Person, Card Reader , and Disposable Email endpoints, only queries that respond
+                with a 200 response code (successfully completed), are counted towards monthly allowances and overages.
+            </p>
+            <table>
+                <tr>
+                    <th>Code Status</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>200 OK</td>
+                    <td>Your request processed successfully.</td>
+                </tr>
+                <tr>
+                    <td>202 Accepted</td>
+                    <td>Your request is currently being processed.
+                        You can check again later to see the request has been processed.
+                    </td>
+                </tr>
+                <tr>
+                    <td>400 Bad Request</td>
+                    <td>Your request was malformed.</td>
+                </tr>
+            </table>
+        </div>
+        <div class="content">
+            <h3>Rate Limiting</h3>
+            <p>
+                All API requests are subject to rate limits that exist independently of your API key's monthly usage allowance.
+                We track rate-limits on a 60-second basis. For example, if your API is subject to a 10/second rate limit, we'll
+                allow you 600 requests per 60 second window. To make it easier for your application to determine if it is being
+                rate-limited, or if it is likely to be in the future, we've added the following HTTP headers to successful responses:
+            </p>
+        </div>
+        <div>
+            <h3>Social Network Types</h3>
+            <p>
+                Below is a list of type ids for photos, socialProfiles, and icons returned by the person method.
+            </p>
+        </div>
+    </div>
+
+    <div class="example">
+
+    </div>
+</div>
+

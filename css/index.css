@@ -1,0 +1,97 @@
+*
+{
+    border: 0;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.navigation-bar
+{
+    display: inline-block;
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    overflow: auto;
+    background-color: #444 ;
+
+}
+.logo
+{
+    width: 100%;
+    background-color: #f9ba48 ;
+    height: 120px;
+    padding: 40px 15px 40px 12px;
+}
+.image
+{
+
+    height: 100%;
+    width: 100%;
+}
+.nav,ul
+{
+    list-style: none;
+    font-family: sans-serif;
+    font-weight: 100;
+}
+
+li a
+{
+    text-decoration: none;
+    padding: 13px;
+    display: block;
+    color: #ffffff;
+    font-size: 15px;
+}
+li a:hover
+{
+    background-color: #111;
+    text-decoration: none;
+}
+
+li a.sub-division
+{
+    font-size: 12px;
+    padding: 8px 5px 8px 35px;
+    color: darkgrey;
+}
+.container
+{
+    width: 84.4%;
+    float: left;
+    margin-left: 200px;
+    display: inline-block;
+}
+.hide
+{
+    display: none;
+}
+.display
+{
+    display: block;
+}
+.active
+{
+    background-color: #333;
+}
+a.sub-division::after
+{
+    content: click;
+    background-color: #03A9F4;
+    color: #ffffff;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: none;
+    background-color: #111;
+    color: #fff;
+    outline: none;
+}
+li a.sub-division:focus ,li a.sub-division:active,li a.sub-division:hover
+{
+    background-color: #111;
+    color: #fff;
+    outline: none;
+}
+
+

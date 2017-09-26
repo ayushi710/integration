@@ -1,0 +1,71 @@
+.code_editor
+{
+    width: 100%;
+    height: 400px;
+    background-color: #f1f1f1;
+    border: 1px solid #c5c5c5;
+    padding: 20px;
+    color: #f1f1f1;
+    z-index: -1;
+    margin-top: 10px;
+}
+h4
+{
+    font-size: inherit;
+    font-weight: 200;
+    color: #444444;
+
+}
+input
+{
+    margin: 5px 0 10px 0;
+    border: 1px solid #c5c5c5;
+    font-size: 13px;
+}
+.sub-title
+{
+    display: inline-block;
+    font-weight: 300;
+    font-size: 13px;
+    margin-right: 5px;
+}
+#admin_email,#user_email
+ {
+
+    width: 100%;
+    padding: 5px;
+ }
+#embed,#embed2
+{
+    width: 100%;
+    height: 90px;
+    padding: 5px;
+    resize: none;
+    background-color: white;
+    border: 1px solid #c5c5c5;
+    overflow: auto;
+    font-size: 13px;
+    color: #111111;
+}
+#link,#link2
+{
+    width: 100%;
+    padding: 5px;
+    color: #111;
+}
+.option
+{
+    display: inline-block;
+    margin: 5px 10px 10px 0;
+}
+select
+{
+    margin-right: 25px ;
+    color: #111;
+}
+.view-temp
+{
+    width: 400px;
+    height: 600px;
+    margin: 56px;
+}

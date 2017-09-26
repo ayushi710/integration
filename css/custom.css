@@ -1,0 +1,134 @@
+.sample-area
+{
+    background-color: #444;
+    padding: 20px;
+    overflow: auto;
+    width: 100%;
+    font-size: 13px;
+    font-family: sans-serif;
+    height:470px;
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+}
+h5
+{
+
+    font-weight: 300;
+    color: rgba(48, 48, 48, 0.69);
+    font-size: 20px;
+    font-family: serif;
+    margin-top: 20px;
+}
+.screen
+{
+    width: 100%;
+    height: 350px;
+    margin: 10px 0 40px 0;
+    box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.2), 4px 6px 20px 4px rgba(0, 0, 0, 0.19);
+}
+.highlighted
+{
+    color: #03A9F4;
+    margin: 15px 0 5px 0;
+}
+.sub-list
+{
+    margin-left: 20px;
+}
+.sample
+{
+  /**  background-color: #333b3f;**/
+    background-color: #444;
+    color: aquamarine;
+    overflow: auto;
+}
+.sample>p
+{
+    color: rgb(189,195,199);
+    font-weight: 100;
+    font-size: 14px;
+}
+.sample>p>b{
+    font-weight: 200;
+    color: #DB7376;
+    font-size: 14px;
+}
+#trapezoid {
+    border-bottom: 35px solid #333b3f;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    height: 0;
+    width: 130px;
+    color: rgb(189,195,199);
+    display: inline-block;
+}
+.sample-call
+{
+    width: 50%;
+    margin: 0 25%;
+    border: 1px solid #1d313e;
+    background-color: #268cce;
+    color: white;
+    border-radius: 20px;
+    padding: 15px;
+    font-size: 15px;
+}
+.sample-call:hover,.sample-call:focus
+{
+    background-color: #106ca9;
+    box-shadow: box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+.nav-pills>li
+{
+    color: #f4f4f4;
+    border-bottom: 45px solid #777;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    height: 0;
+    display: inline-block;
+}
+.nav-pills>li>a,.nav-pills>li>a:hover
+{
+    background-color: #777;
+    color: #bdbdbd;
+
+}
+.current
+{
+    background-color: #444;
+    color: #FFFFFF;
+}
+.sample-btn
+{
+    cursor: pointer;
+    width: 60%;
+    text-align: center;
+    margin: 5px 20% 20px;
+    background-color: #f9ba48;
+    color: #FFFFFF;
+    padding: 8px;
+    font-size: 20px;
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+}
+.sample-btn:hover {
+    background-color: #e69f1d;
+}
+.calls
+{
+    color:#F5F7F8 ;
+    background-color: #222;
+    padding: 0;
+    font-weight: 100;
+}
+.calls>b {
+    color: rgb(133, 190, 228);
+    font-weight: 100;
+}
+.punctuator {
+    color: rgba(158, 241, 185, 0.97);
+    font-weight: 100;
+}
+.string {
+    color:#DB7376;
+    font-weight: 100;
+}

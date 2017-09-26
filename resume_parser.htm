@@ -1,0 +1,217 @@
+
+<div class="contain">
+    <div class="navigation-bar">
+        <div class="logo">
+            <img src="images/gBlogo-white.png" class="image">
+        </div>
+
+        <ul class="nav">
+            <li>
+                <a href="#!introduction" onclick="winScroll(0,0)"> INTRODUCTION</a>
+            </li>
+            <li><a href="#!editor" onclick="winScroll(0,0)"> EDITOR</a></li>
+            <!--
+            <li><a href="#!digital_footprint" onclick="winScroll(0,0)"> DIGITAL FOOTPRINT</a></li>
+            -->
+            <li><a href="#!ats" onclick="winScroll(0,0)"> ATS</a></li>
+            <li class="active">
+                <a href="#!resume_parser" onclick="winScroll(0,0)"> RESUME PARSER</a>
+                <div id="parser_list">
+                    <ul>
+                        <li><a class="sub-division" onclick="winScroll(0,0)" >Resume Parser Overview</a> </li>
+
+                        <li><a class="sub-division" onclick="winScroll(100,230)">Parser Capabilities</a> </li>
+                        <li><a class="sub-division" onclick="winScroll(100,1820)">System</a> </li>
+                        <li><a class="sub-division" onclick="winScroll(100,2000)">Framework</a> </li>
+                        <li><a class="sub-division" onclick="winScroll(100,2140)">Pre-Requisites</a> </li>
+
+                        <li><a class="sub-division" onclick="winScroll(100,2200)">Pros</a> </li>
+                        <li><a class="sub-division" onclick="winScroll(100,2330)">How does the parser work?</a> </li>
+
+                    </ul>
+                </div>
+
+            </li>
+            <!--
+            <li><a href="#!opportunities" onclick="winScroll(0,0)"> OPPORTUNITIES</a></li>
+            -->
+            <li><a href="#!custom" onclick="winScroll(0,0)"> CUSTOM</a></li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="content">
+            <h3>Resume Parser Overview</h3>
+            <p>
+                Parser that extracts information from any resume and converts into a structured .json format
+                to be used by internal systems. The parser uses a rule-based approach that focuses on semantic
+                rather than syntactic parsing. The parser can handle document types in .pdf, .txt, .doc and .docx
+                (Microsoft word). In its current form, this application is a console based application.
+            </p>
+        </div>
+
+        <div class="content">
+            <h3>Parser Capabilities</h3>
+            <ul class="list">
+                <li>Supported formats: PDF, doc, docx, rtf, html, txt</li>
+                <li>Supported Resume Language: English</li>
+                <li>Output JSON format:</li>
+            </ul>
+        </div>
+        <div class="content">
+            <h5>Sample</h5>
+            <pre class="code_area">
+
+                {
+                    "title":"",
+                    "gender":"",
+                    "name":{
+                              "first":"Antony",
+                              "middle":"Deepak",
+                              "last":"Thomas"
+                    },
+                    "email":[
+
+                    ],
+                    "address":[
+
+                    ],
+                    "phone":[
+
+                    ],
+                    "url":[
+
+                    ],
+                    "work_experience":[
+                                       {
+                                         "date_start":"",
+                                         "jobtitle":"",
+                                         "organization":"",
+                                         "date_end":"",
+                                         "text":""
+                                        },
+                                        {
+                                           "<section_title>":""
+                                         }
+                    ],
+                    "skills":[
+                                 {
+                                   "<section_title_from_resume>":"text"
+                                 }
+                    ],
+                    "education_and_training":[
+                                 {
+                                   "<section_title_from_resume>":"text"
+                                 }
+                    ],
+                    "accomplishments":[
+                                {
+                                    "<section_title_from_resume>":"text"
+                                }
+                                ],
+                    "awards":[
+                                {
+                                   "<section_title_from_resume>":"text"
+                                }
+                    ],
+                    "credibility":[
+                                {
+                                    "<section_title_from_resume>":"text"
+                                }
+                    ],
+                    "extracurricular":[
+                                {
+                                     "<section_title_from_resume>":"text"
+                                }
+                    ],
+                    "misc":[
+                                {
+                                      "<section_title_from_resume>":"text"
+                                }
+                    ]
+                    }
+
+            </pre>
+        </div>
+        <div class="content">
+            <h3>System</h3>
+            <ul class="list">
+                <li>Windows 8.1 (tested). Should also run in Windows 7 & 10.</li>
+                <li>Mac OSX</li>
+            </ul>
+        </div>
+        <div class="content">
+            <h3>Framework</h3>
+            <ul class="list">
+                <li>GATE<a class="link"  href="https://gate.ac.uk/" target="_blank">(https://gate.ac.uk/)</a>- Open source language processing framework.</li>
+                <li>Apache Tikka<a class="link" href="http://tika.apache.org/" target="_blank">(http://tika.apache.org/)</a>- Open source format handling framework</li>
+            </ul>
+        </div>
+        <div class="content">
+            <h3>Pre-requisites</h3>
+            <ul class="list">
+                <li>Windows</li>
+                <li>Powershell</li>
+                <li>Git</li>
+                <li>Latest Java (jre8 tested)</li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h3>Pros</h3>
+            <ul class="list">
+                <li>Very powerful semantic parsing of resumes. I did not syntactically parse based on common
+                    styles or appearances of sections because these approaches do not scale.</li>
+                <li>Relies on proven grammar engines (GATE) and open source projects.</li>
+            </ul>
+        </div>
+        <div class="content">
+            <h3>How does the parse work?</h3>
+            <p>
+                Parse uses the English grammar engine provided by GATE through its ANNIE framework.
+                The output is then transduced using the grammar rules and lists specifically written for resume parsing.
+                The JAPE grammar defines a generic set of rules that complies with popular ways of resume writing.
+                It takes proper nouns from lists and applies them to rules to identify entities.
+                Explore the source code and read about GATE for more details. Also, feel free to pose questions.
+            </p>
+        </div>
+    </div>
+    <div class="example">
+
+        <div class="wrapper">
+            <div class="upload-console">
+                <h2 class="upload-console-header">Get on the boat !</h2>
+
+                <div class="upload-console-body">
+                    <div class="upload-console-drop" id="drop-zone">
+
+                        <p>
+                        Just drag and drop your image  and your resume here OR
+
+
+                        <label class="custom-file-upload">
+                            <input type="file" name="files[]" id="standard-upload-files" onchange="send(this)" multiple/>
+                            <span class="upload-btn">Upload </span>
+                        </label>
+                        </p>
+                    </div>
+
+                    <div class="bar">
+                        <div class="bar-fill" id="bar-fill">
+                            <div class="bar-fill-text" id="bar-fill-text"></div>
+                        </div>
+                    </div>
+
+                    <div id="uploads-finished" class="hidden">
+                        <h3>Processed files</h3>
+
+                    </div>
+                    <button onclick="generate()" class="btn btn-success "> Generate </button> </span>
+                    <button onclick="resume_download()" class="btn btn-danger ">Download Resume </button> </span>
+                </div>
+            </div>
+            <div id="demo" class="panel panel-success" ></div>
+        </div>
+
+
+    </div>
+</div>
