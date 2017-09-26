@@ -41,6 +41,6 @@ app.config(function ($routeProvider) {
        })
        .when("/custom",{
            templateUrl: "custom.htm",
-           controller:'customCtrl'
+
        });
 });
